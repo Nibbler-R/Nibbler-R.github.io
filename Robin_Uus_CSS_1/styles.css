@@ -1,0 +1,384 @@
+/* =========================================================
+   styles.css – Laurea University Job Application
+   ========================================================= */
+
+/* 1. RESET DEFAULTS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2. BASE STYLES (TYPE SELECTORS) */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #222;
+    background-color: #f5f7fb;
+    line-height: 1.5;
+}
+
+/* Page container */
+main {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;          /* margin: 0 auto example (centers main) */
+    margin-top: 20px;
+    padding: 20px;
+    min-height: 400px;       /* min-height example required by assignment */
+}
+
+
+
+/* Headings & paragraphs */
+h1, h2, h3 {
+    margin-bottom: 0.75rem;
+}
+
+p {
+    margin-bottom: 0.75rem;
+}
+
+/* Main title */
+#main-title {
+    text-align: center;
+    font-size: 2rem;
+    margin: 18px 0 8px;
+}
+
+/* Optional extra style for any h1 with class "title" */
+h1.title {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* 3. HEADER & FOOTER */
+
+header, footer {
+    background-image: linear-gradient(#ffffff, #dde4ff);
+    padding: 12px 20px;
+    border-bottom: 1px solid #ccd2e0;
+}
+
+header {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
+footer {
+    text-align: center;
+    font-size: 0.875rem;
+    margin-top: 20px;
+    opacity: 0.9;
+    border-top: 1px solid #ccd2e0;
+}
+
+/* 4. NAVIGATION */
+
+nav {
+    text-align: center;
+    margin-top: 8px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #0047a3;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+/* Link states */
+nav a:hover {
+    text-decoration: underline;
+}
+
+nav a:visited {
+    color: #662d91;
+}
+
+nav a:active {
+    opacity: 0.7;
+}
+
+/* 5. GENERIC SECTION SPACING (BOX MODEL DEMO) */
+
+section {
+    margin-top: 16px;
+    margin-right: 0;
+    margin-bottom: 16px;
+    margin-left: 0;
+    padding-top: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+}
+
+/* Type selector targeting the form element */
+form {
+    margin-top: 10px;
+}
+
+
+/* 6. FORM CARD */
+
+.form-section {
+    background-color: #ffffff;
+    border: 1px solid #ccd2e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 16px 0 24px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.04);
+}
+
+/* Labels inside form (default) */
+.form-section label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Normal form controls
+   (text, email, password, number, select, textarea) */
+.form-section input[type="text"],
+.form-section input[type="email"],
+.form-section input[type="password"],
+.form-section input[type="number"],
+.form-section input[list],
+.form-section select,
+.form-section textarea {
+    width: 100%;
+    max-width: 500px;
+    min-width: 200px;
+    padding: 6px 10px 5px 12px;  /* padding shorthand */
+    margin: 6px 0 12px 0;        /* vertical spacing only */
+    border: 1px solid #b6bedc;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    background-color: #f9fbff;
+}
+
+/* Group block for things like Job Preferences / Job Type */
+.field-group {
+    margin-bottom: 20px;      /* space between groups */
+}
+
+/* Label text like "Job Preferences:" / "Job Type:" */
+.field-label {
+    margin-bottom: 6px;
+    font-weight: normal;
+}
+
+/* 7. CUSTOM CIRCLE CHECKBOX & RADIO BUTTON STYLES */
+
+/* Wrapper for each option: custom circle + text */
+.circle-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Hide the native checkbox/radio visually but keep it accessible */
+.circle-option input[type="checkbox"],
+.circle-option input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* The visible circle */
+.custom-circle {
+    width: 17px;
+    height: 17px;
+    border: 2px solid #555;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    transition: 0.15s;
+}
+
+/* Filled when selected */
+.circle-option input:checked + .custom-circle {
+    background-color: #0053a0;
+    border-color: #0053a0;
+}
+
+/* 8. SALARY ROW – LABEL + SLIDER + VALUE INLINE */
+
+.salary-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.salary-group > label {
+    min-width: 180px;      /* similar width to other labels */
+    margin-bottom: 0;
+}
+
+.salary-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;              /* space between slider and "800 €" */
+    flex: 1;
+}
+
+.salary-input input[type="range"] {
+    flex: 1;
+    margin: 0;
+}
+
+/* 9. ATTRIBUTE-BASED STYLES */
+
+/* Any input whose name contains "name" */
+input[name*="name"] {
+    font-weight: bold;
+}
+
+/* Disabled + readonly */
+input:disabled {
+    background-color: #e4e6ed;
+    color: #666;
+}
+
+input[readonly] {
+    background-color: #f0f2f9;
+    border-style: dashed;
+}
+
+/* Focus state */
+.form-section input:focus,
+.form-section select:focus,
+.form-section textarea:focus {
+    outline: none;
+    border-color: #0047a3;
+    box-shadow: 0 0 0 2px rgba(0,71,163,0.2);
+}
+
+/* Submit button */
+input[type="submit"] {
+    width: auto;
+    min-width: 180px;
+    height: 40px;
+    cursor: pointer;
+    background-color: #0077cc;
+    color: #ffffff;
+    border-radius: 20px;
+    border: none;
+    font-weight: bold;
+    margin-top: 4px;
+}
+
+/* !important example – override background */
+input[type="submit"] {
+    background-color: #0053a0 !important;
+}
+
+input[type="submit"]:hover {
+    filter: brightness(1.05);
+}
+
+/* 10. EXTRA UTILITY CLASSES */
+
+.green {
+    color: #006400;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.green.bold {
+    background-color: #e1f5e1;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* 11. QUOTE / ASIDE */
+
+aside {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* This ruleset uses margin shorthand (top right bottom left) as required */
+#quote {
+    margin: 6px 11px 4px 9px;     /* margin shorthand example */
+    border-left: 4px solid #0047a3;
+    padding-left: 12px;
+    font-style: italic;
+    max-width: 600px;
+}
+
+
+/* 12. MEDIA SECTION */
+
+#media {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #ccd2e0;
+}
+
+/* Overflow demo for embed */
+#media embed {
+    max-height: 260px;
+    overflow: auto;
+}
+
+/* Visibility property used to hide an element without removing its space */
+.hidden-demo {
+    visibility: hidden;
+}
+
+/* 13. DEMO IMAGE ATTRIBUTE SELECTOR */
+
+img[src*="winter"] {
+    border: 3px solid #0047a3;
+    border-radius: 10px;
+    display: block;
+    margin: 12px auto;
+}
+
+/* 14. OPTIONAL LIST STYLE FOR FUTURE NAV UL */
+
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* 15. RESPONSIVE TWEAKS */
+
+@media (max-width: 600px) {
+    main {
+        padding: 10px;
+        margin: 10px auto;
+    }
+
+    .form-section input[type="text"],
+    .form-section input[type="email"],
+    .form-section input[type="password"],
+    .form-section input[type="number"],
+    .form-section input[list],
+    .form-section select,
+    .form-section textarea {
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .salary-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .salary-group > label {
+        margin-bottom: 6px;
+    }
+}
+
+
+
