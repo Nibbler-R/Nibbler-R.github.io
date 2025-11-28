@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laurea University - Job Application</title>
+
+    <!-- Internal CSS example required by assignment -->
+    <style>
+        /* Internal CSS: style all blockquotes */
+        blockquote {
+            color: #444;
+        }
+    </style>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header>
+    <h1 id="main-title">Laurea University of Applied Sciences</h1>
+    <nav>
+        <a href="#Application">Job Application Form</a> |
+        <a href="#quote">Quote</a> |
+        <a href="#media">Laurea Media</a>
+    </nav>
+</header>
+
+
+<main>
+
+    <!-- Main Job Application Section -->
+    <section id="Application" class="form-section">
+        <article>
+            <h2 style="letter-spacing: 1px; color: #0053a0;">
+             Student Assistant Job Application
+            </h2>
+
+            <!-- Job Application Form Starts Here -->
+            <form action="/submit" method="post" autocomplete="on">
+
+                <!-- TEXT INPUTS -->
+                <label>Full Name:
+                    <input type="text" name="fullname" placeholder="Jane Student"
+                           required minlength="3" maxlength="50">
+                </label><br><br>
+
+                <label>Email Address:
+                    <input type="email" name="email" placeholder="you@student.laurea.fi"
+       required pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+
+                </label><br><br>
+
+                <!-- PASSWORD -->
+                <label>Password:
+                    <input type="password" name="password" required>
+                </label><br><br>
+
+                <!-- NUMBER INPUT -->
+                <label>Years of Experience:
+                    <input type="number" name="experience" min="0" max="10">
+                </label><br><br>
+
+                <!-- RANGE SLIDER -->
+                <div class="salary-group">
+                <label for="salary">Expected Salary Range:</label>
+                <div class="salary-input">
+                <input
+                type="range"
+                name="salary"
+                id="salary"
+                min="800"
+                max="3000"
+                step="100"
+                oninput="salaryValue.textContent = this.value"
+                   >
+                <span id="salaryValue">1400</span> €
+                </div>
+                </div>
+
+                <!-- CHECKBOXES -->
+                <div class="field-group"> <p class="field-label">Job Preferences:</p> <label><input type="checkbox" name="preference" value="remote"> Remote Work</label> 
+                <label><input type="checkbox" name="preference" value="oncampus"> On Campus</label> 
+                <label><input type="checkbox" name="preference" value="parttime"> Part-time</label> 
+                </div> 
+                <div class="field-group"> <p class="field-label">Job Type:</p> 
+                    <label><input type="radio" name="jobtype" value="studentassistant" required> Student Assistant</label> 
+                    <label><input type="radio" name="jobtype" value="internship"> Internship</label> </div>
+
+
+
+                <!-- DROPDOWN MENU -->
+                <label>Department:
+                    <select name="department" required>
+                        <option value="">-- Select Department --</option>
+                        <option value="business">Business Management</option>
+                        <option value="it">Information Technology</option>
+                        <option value="nursing">Nursing</option>
+                        <option value="social">Social Services</option>
+                    </select>
+                </label><br><br>
+
+                <!-- DATALIST -->
+                <label>Campus Preference:
+                <select name="campus" required>
+                <option value="">-- Select Campus --</option>
+                <option value="Tikkurila">Tikkurila</option>
+                <option value="Leppävaara">Leppävaara</option>
+                <option value="Hyvinkää">Hyvinkää</option>
+                <option value="Lohja">Lohja</option>
+                </select>
+                </label>
+                <br><br>
+
+                <!-- TEXTAREA -->
+                <label>Motivation Letter:<br>
+                    <textarea name="motivation" rows="5" cols="40"
+                              placeholder="Why would you like to work with us?"></textarea>
+                </label><br><br>
+
+                <!-- DISABLED / READONLY -->
+                <label>Referral Code (disabled):
+                    <input type="text" value="LAUREAREF123" disabled>
+                </label><br><br>
+
+                <label>Application ID (readonly):
+                    <input type="text" value="LAU2025APP" readonly>
+                </label><br><br>
+
+                <!-- SUBMIT BUTTON (WITH ARIA LABEL) -->
+                <input type="submit" value="Submit Application"
+                       aria-label="Submit your job application">
+
+            </form>
+            <!-- Job Application Form Ends Here -->
+
+        </article>
+    </section>
+
+    <!-- QUOTE ASIDE -->
+    <aside>
+        <blockquote id="quote">
+            <p>"The future belongs to those who believe in the beauty of their dreams." – Eleanor Roosevelt</p>
+        </blockquote>
+    </aside>
+ 
+    <!-- MEDIA SECTION WITH EMBED  -->
+    <section id="media">
+        <h3>Laurea Promotional Video</h3>
+        <!-- Required <embed> tag -->
+        <embed src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+               width="400" height="250">
+    </section>
+
+        <!-- CHECKLIST SECTION -->
+    <section id="checklist">
+        <h3>Checklist</h3>
+
+        <div class="checklist-card">
+            <ul>
+                <li>Bring updated CV</li>
+                <li>Prepare references</li>
+                <li>Check Laurea career portal</li>
+            </ul>
+
+            <p class="checklist-note">
+                For more information, visit
+                <a href="https://www.laurea.fi" target="_blank">Laurea UAS careers</a>.
+            </p>
+        </div>
+    </section>
+
+<p class="hidden-demo">This text is hidden using the CSS visibility property.</p>
+
+
+</main>
+
+<footer>
+    <p>&copy; 2024 Laurea University of Applied Sciences. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
+
