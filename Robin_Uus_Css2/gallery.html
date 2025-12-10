@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Art Gallery – Gallery</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="logo-area">
+    <span class="logo-mark">MG</span>
+    <div class="logo-text">
+      <h1 class="site-title">My Art Gallery</h1>
+      <p class="site-tagline">City Photography at its finest</p>
+    </div>
+  </div>
+
+  <nav class="main-nav">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="gallery.html" class="nav-link current">Gallery</a>
+  </nav>
+</header>
+
+
+<main class="page page-gallery">
+
+  <section class="page-heading">
+    <h2 class="section-title">Cities & Landscapes</h2>
+    <p class="section-subtitle">
+      A set of photographs exploring light, colors and rhythm in urban spaces.
+    </p>
+  </section>
+
+  <!-- Sticky filter bar -->
+  <div class="filter-bar">
+    <span class="filter-label">Filter:</span>
+    <button class="chip chip-active">All</button>
+    <button class="chip">Skylines</button>
+    <button class="chip">Waterfronts</button>
+    <button class="chip">Street life</button>
+  </div>
+
+<section class="credits" style="margin-top:3rem; text-align:center; font-size:0.85rem; opacity:0.85;">
+  <p><strong>Photo Credits (Pexels):</strong></p>
+
+  <p>City street & night lights — Photo by Aleksandar Pasaric</p>
+  <p>Old street — Photo by David Bartus</p>
+  <p>Coast & boats — Photo by Ec Lipse</p>
+  <p>Mountain lake — Photo by Michael Block</p>
+  <p>Skyline — Photo by Nick Kwan</p>
+  <p>Foggy cityscape — Photo by Stephen Leonardi</p>
+
+  <p style="margin-top:1rem;">
+    All images used under the <a href="https://www.pexels.com/license/" target="_blank">Pexels License</a>.
+  </p>
+</section>
+
+  <!-- Your images -->
+  <section class="gallery-grid">
+
+    <figure class="art-card card-rel">
+      <img src="images/pexels-apasaric-2506923.jpg" alt="City night view">
+      <figcaption>City I – Colorful City Street</figcaption>
+    </figure>
+
+    <figure class="art-card card-rel">
+      <img src="images/pexels-david-bartus-43782-586687.jpg" alt="City night view">
+      <figcaption>City II – Canal And Old Houses</figcaption>
+    </figure>
+
+
+    <figure class="art-card card-static">
+      <img src="images/pexels-ec-lipse-263453583-35097048.jpg" alt="Coastline sunset">
+      <figcaption>City III – Boats On The Harbor</figcaption>
+    </figure>
+
+    <figure class="art-card">
+      <img src="images/pexels-michael-block-1691617-3225526.jpg" alt="Mountain lake">
+      <figcaption>City IV – Mountain Lake</figcaption>
+    </figure>
+
+    <figure class="art-card">
+      <img src="images/pexels-nickkwanhk-2614818.jpg" alt="City skyline">
+      <figcaption>City V – City Skyline From Above</figcaption>
+    </figure>
+
+    <figure class="art-card layered-card">
+      <img src="images/pexels-stephen-leonardi-587681991-35076254.jpg" alt="Foggy city">
+      <figcaption>City VI – Foggy Cityscape</figcaption>
+    </figure>
+
+  </section>
+
+
+  <section class="thanks">
+    <p>Thanks for visiting the gallery!</p>
+
+  </section>
+
+</main>
+
+
+<footer class="site-footer">
+  <p>&copy; 2025 My Art Gallery. Built for CSS assignment.</p>
+</footer>
+
+</body>
+</html>
