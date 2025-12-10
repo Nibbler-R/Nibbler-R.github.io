@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Art Gallery – Home</title>
+
+  <!-- Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- External stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Internal CSS – only for this page -->
+  <style>
+    /* Internal CSS example: styles only used on the home page */
+    .quote-box {
+      /* This element demonstrates hsl() color and text-align */
+      background-color: hsl(210, 60%, 95%);
+      border-left: 4px solid hsl(210, 40%, 55%);
+      padding: 1.2rem 1.5rem;
+      margin: 2rem auto;
+      max-width: 600px;
+      font-style: italic;
+      text-align: center;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <!-- Fixed header uses position: fixed in CSS -->
+  <header class="site-header">
+    <div class="logo-area">
+      <span class="logo-mark">MG</span>
+      <div class="logo-text">
+        <h1 class="site-title">My Art Gallery</h1>
+        <p class="site-tagline">City Photography at its finest</p>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <!-- display: inline is applied to these links in CSS -->
+      <a href="index.html" class="nav-link current">Home</a>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+    </nav>
+  </header>
+
+  <!-- main content is pushed down to compensate for fixed header -->
+  <main class="page page-home">
+    <!-- Hero section -->
+    <section class="hero">
+      <div class="hero-image-wrapper">
+        <!-- This artwork uses relative positioning on the wrapper and
+             absolute positioning on the label (see CSS comments). -->
+        <img src="images/pexels-jimmy-liao-3615017-17800836.jpg" alt="Skyline at sunset" class="hero-image">
+
+        <div class="hero-label">
+          Urban Landscapes
+        </div>
+      </div>
+
+      <div class="hero-text intro-text">
+        <h2 class="section-title">Welcome to the collection</h2>
+        <p>
+          Explore a curated selection of
+          <!-- Inline style example -->
+          <!-- Inline style used to highlight this word -->
+          <span style="color:#c0392b; font-weight:700;">vibrant</span>
+          cityscapes, quiet streets, and tiny moments of light.
+          Every photograph tells a story of movement, architecture,
+          and the humans who live in between.
+        </p>
+        <p>
+          This site is created for learning HTML &amp; CSS – but you’re
+          invited to enjoy it like a real gallery.
+        </p>
+      </div>
+    </section>
+
+   
+        <h3>About the Artist</h3>
+        
+        <p>
+          The gallery highlights a mix of
+          modern skylines, historic streets, bridges, and waterfronts.
+          Some images are taken by me, others are carefully chosen
+          from royalty-free libraries such as Unsplash and Pexels.
+        </p>
+      </div>
+      <!-- Element that demonstrates clear: both -->
+      <div class="clearfix"></div>
+    </section>
+
+    <section class="quote-box">
+      “A city is not gauged by its length and width, but by the
+      <strong>breadth of its vision</strong> and the height of its dreams.”
+    </section>
+
+    <section class="cta-section">
+      <p>Ready to see the artworks?</p>
+      <a class="button-primary" href="gallery.html">Enter the Gallery</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 My Art Gallery. Built for the CSS assignment.</p>
+  </footer>
+</body>
+</html>
