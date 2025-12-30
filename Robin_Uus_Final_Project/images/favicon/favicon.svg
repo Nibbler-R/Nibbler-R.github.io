@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- background -->
+  <rect width="64" height="64" rx="14" fill="#0b1020"></rect>
+  <!-- subtle border -->
+  <rect x="2" y="2" width="60" height="60" rx="12" fill="none" stroke="#d6b15e" stroke-width="2" opacity="0.9"></rect>
+  <!-- letters -->
+  <text x="32" y="41" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="700" fill="#d6b15e" letter-spacing="1">CS</text>
+</svg>

@@ -1,0 +1,469 @@
+
+:root {
+  --night: #0b1020;
+  --night-soft: #111a33;
+  --gold: #d6b15e;
+  --gold-soft: rgba(214, 177, 94, 0.25);
+  --text: #e9eefc;
+  --muted: rgba(233, 238, 252, 0.72);
+}
+
+/* --------------------
+   RESET / BASE
+-------------------- */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:
+    radial-gradient(1200px 600px at 10% 10%, rgba(214, 177, 94, 0.10), transparent 60%),
+    radial-gradient(900px 500px at 90% 20%, rgba(120, 160, 255, 0.10), transparent 60%),
+    var(--night);
+  color: var(--text);
+}
+
+/* --------------------
+   BRANDING
+-------------------- */
+.brand-title {
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.5px;
+}
+
+.brand-mark {
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+
+/* --------------------
+   TEXT / LINKS
+-------------------- */
+.text-muted {
+  color: var(--muted) !important;
+}
+
+.link-gold {
+  color: var(--gold);
+  text-decoration: none;
+}
+.link-gold:hover,
+.link-gold:focus {
+  text-decoration: underline;
+}
+
+/* --------------------
+   BACKGROUNDS & BORDERS
+-------------------- */
+.bg-night {
+  background-color: var(--night) !important;
+}
+
+.bg-night-soft {
+  background-color: var(--night-soft) !important;
+}
+
+.border-gold-subtle {
+  border-color: var(--gold-soft) !important;
+}
+
+/* --------------------
+   NAVBAR (FIXED)
+-------------------- */
+.navbar.bg-night {
+  background-color: var(--night) !important;
+}
+
+.navbar.bg-night .navbar-brand,
+.navbar.bg-night .nav-link {
+  color: var(--text) !important;
+}
+
+.navbar.bg-night .nav-link:hover,
+.navbar.bg-night .nav-link:focus {
+  color: var(--gold) !important;
+}
+
+.navbar.bg-night .nav-link.active {
+  color: var(--gold) !important;
+}
+
+/* --------------------
+   ACCESSIBILITY
+-------------------- */
+.skip-link {
+  position: absolute;
+  top: -50px;
+  left: 12px;
+  background: var(--gold);
+  color: #0a0a0a;
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  z-index: 2000;
+}
+.skip-link:focus {
+  top: 12px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* --------------------
+   BUTTONS
+-------------------- */
+.btn-gold {
+  background-color: var(--gold);
+  border-color: var(--gold);
+  color: #0a0a0a;
+  font-weight: 600;
+}
+
+.btn-gold:hover,
+.btn-gold:focus {
+  background-color: #e1c276;
+  border-color: #e1c276;
+  color: #0a0a0a;
+}
+
+.btn-outline-gold {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.btn-outline-gold:hover,
+.btn-outline-gold:focus {
+  background: var(--gold);
+  color: #0a0a0a;
+}
+
+/* Active filter button */
+.filter-btn.active {
+  background-color: var(--gold);
+  color: #0a0a0a;
+}
+
+/* --------------------
+   HERO
+-------------------- */
+.hero {
+  border-bottom: 1px solid var(--gold-soft);
+}
+
+.hero-title {
+  font-family: "Cinzel", serif;
+}
+
+.hero-card {
+  background: rgba(17, 26, 51, 0.65);
+  border: 1px solid var(--gold-soft);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+}
+
+/* --------------------
+   SHADOWS
+-------------------- */
+.shadow-soft {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* --------------------
+   SECTION TITLES
+-------------------- */
+.section-title {
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.3px;
+}
+
+/* --------------------
+   CHAMPION CARDS
+-------------------- */
+.champ-card {
+  background: rgba(17, 26, 51, 0.65);
+  border: 1px solid var(--gold-soft);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease;
+}
+
+.champ-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  border-color: rgba(214, 177, 94, 0.45);
+}
+
+.champ-card .card-img-top {
+  height: 220px;
+  object-fit: cover;
+}
+
+/* --------------------
+   ACCORDION
+-------------------- */
+.accordion-gold .accordion-item {
+  background: rgba(17, 26, 51, 0.65);
+  border: 1px solid var(--gold-soft);
+}
+
+.accordion-gold .accordion-button {
+  background: rgba(17, 26, 51, 0.9);
+  color: var(--text);
+}
+
+.accordion-gold .accordion-button:not(.collapsed) {
+  background: var(--gold);
+  color: #0a0a0a;
+}
+
+.accordion-gold .accordion-button:focus {
+  box-shadow: none;
+}
+
+/* --------------------
+   CTA
+-------------------- */
+.cta-card {
+  border: 1px solid var(--gold-soft);
+  background: rgba(17, 26, 51, 0.65);
+}
+
+/* --------------------
+   FOOTER / SOCIALS
+-------------------- */
+.social-link {
+  color: var(--muted);
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.social-link:hover,
+.social-link:focus {
+  color: var(--gold);
+}
+
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--gold-soft);
+  border-radius: 999px;
+  background: rgba(17, 26, 51, 0.65);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.social-pill:hover,
+.social-pill:focus {
+  border-color: rgba(214, 177, 94, 0.55);
+  color: var(--gold);
+}
+
+/* --------------------
+   FORMS (DARK)
+-------------------- */
+.form-control-dark,
+.form-control-dark:focus,
+.form-control-dark.form-select {
+  background-color: rgba(11, 16, 32, 0.85) !important;
+  border: 1px solid var(--gold-soft) !important;
+  color: var(--text) !important;
+}
+
+.form-control-dark::placeholder {
+  color: rgba(233, 238, 252, 0.55);
+}
+
+/* --------------------
+   MODALS
+-------------------- */
+.modal-surface {
+  background: rgba(17, 26, 51, 0.95);
+  color: var(--text);
+  border: 1px solid var(--gold-soft);
+}
+
+/* --------------------
+   ABOUT PAGE SWATCHES
+-------------------- */
+.swatch {
+  width: 46px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid var(--gold-soft);
+}
+
+.swatch-night {
+  background: var(--night);
+}
+
+.swatch-nightsoft {
+  background: var(--night-soft);
+}
+
+.swatch-gold {
+  background: var(--gold);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* --------------------
+   RESPONSIVE
+-------------------- */
+@media (min-width: 992px) {
+  .w-lg-auto {
+    width: auto !important;
+  }
+}
+/* ================================
+   FORM READABILITY FIX (CONTACT)
+   ================================ */
+
+/* Labels */
+form label,
+.form-label {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Inputs & textarea */
+.form-control,
+.form-select {
+  background-color: rgba(11, 16, 32, 0.85);
+  color: var(--text);
+  border: 1px solid var(--gold-soft);
+}
+
+/* Placeholder text */
+.form-control::placeholder,
+textarea::placeholder {
+  color: rgba(233, 238, 252, 0.6);
+}
+
+/* Focus state (accessibility) */
+.form-control:focus,
+.form-select:focus {
+  background-color: rgba(11, 16, 32, 0.95);
+  color: var(--text);
+  border-color: var(--gold);
+  box-shadow: 0 0 0 0.2rem rgba(214, 177, 94, 0.25);
+}
+
+/* Checkbox text */
+.form-check-label {
+  color: var(--muted);
+}
+
+/* Section cards (form container) */
+.form-card {
+  background: rgba(17, 26, 51, 0.75);
+  border: 1px solid var(--gold-soft);
+}
+/* ================================
+   CHAMPION CARD TEXT READABILITY
+   ================================ */
+
+/* Champion name */
+.champ-card .card-title,
+.champ-card h3 {
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.75);
+}
+
+/* Champion description */
+.champ-card .card-text {
+  color: rgba(233, 238, 252, 0.9);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Role + tag badges */
+.champ-card .badge {
+  background-color: rgba(11, 16, 32, 0.85);
+  color: #ffffff;
+  border: 1px solid var(--gold-soft);
+}
+
+/* OPTIONAL: image overlay for better contrast */
+.champ-card {
+  position: relative;
+}
+
+.champ-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.45)
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Keep content above overlay */
+.champ-card > * {
+  position: relative;
+  z-index: 2;
+}
+/* ================================
+   BEGINNER TIPS (ACCORDION) FIX
+   ================================ */
+
+/* Accordion container */
+.accordion-gold .accordion-item {
+  background: rgba(17, 26, 51, 0.75);
+  border: 1px solid var(--gold-soft);
+}
+
+/* Accordion header button */
+.accordion-gold .accordion-button {
+  background: rgba(17, 26, 51, 0.9);
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Active (open) header */
+.accordion-gold .accordion-button:not(.collapsed) {
+  background: var(--gold);
+  color: #0a0a0a;
+}
+
+/* Accordion body (THIS is the main fix) */
+.accordion-gold .accordion-body {
+  color: rgba(233, 238, 252, 0.9);
+  background: rgba(11, 16, 32, 0.85);
+  line-height: 1.6;
+}
+
+/* Remove Bootstrap default focus shadow */
+.accordion-gold .accordion-button:focus {
+  box-shadow: none;
+}
+/* ================================
+   ACCORDION ARROW VISIBILITY FIX
+   ================================ */
+
+/* Default (collapsed) arrow */
+.accordion-gold .accordion-button::after {
+  filter: brightness(0) invert(1);
+}
+
+/* Active (open) arrow */
+.accordion-gold .accordion-button:not(.collapsed)::after {
+  filter: brightness(0);
+}
