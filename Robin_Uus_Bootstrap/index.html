@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Robin Uus - Web Developer Portfolio</title>
+
+    <!-- Bootstrap 5 CSS (CDN) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Your custom CSS -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body
+    data-bs-spy="scroll"
+    data-bs-target="#mainNavbar"
+    data-bs-smooth-scroll="true"
+    tabindex="0"
+  >
+    <!-- NAVBAR -->
+    <nav
+      id="mainNavbar"
+      class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#home">MyPortfolio</a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+          aria-controls="navMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto gap-lg-2">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#testimonials">Testimonials</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HEADER / HERO -->
+    <header id="home" class="py-5 hero-bg">
+      <div class="container">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body p-4 p-md-5">
+            <h1 class="display-6 fw-bold text-center text-primary mb-0">
+              Robin Uus - Web Developer Portfolio
+            </h1>
+            <p class="text-center text-muted mt-3 mb-0">
+              Responsive portfolio built with Bootstrap 5 layout, components,
+              utilities, and custom CSS.
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-5">
+      <div class="container">
+        <div class="card border-0 shadow-sm section-card">
+          <div class="card-body p-4 p-md-5">
+            <h2 class="text-center fw-bold mb-4">About Me</h2>
+
+            <div class="row align-items-center g-4">
+              <div class="col-12 col-lg-7">
+                <p class="lead mb-3">
+                  Hello! My name is <span class="fw-semibold">Robin</span>. I
+                  enjoy building modern, mobile-friendly websites and learning
+                  new web technologies.
+                </p>
+
+                <p class="text-muted mb-4">
+                  I like working on projects, solving problems, and improving my
+                  design and coding skills. This website showcases my Bootstrap
+                  5 layout knowledge (grid, utilities, components) and custom
+                  CSS.
+                </p>
+
+                <!-- Badges -->
+                <div class="d-flex flex-wrap gap-2 mb-4">
+                  <span class="badge text-bg-primary">Bootstrap 5</span>
+                  <span class="badge text-bg-dark">HTML</span>
+                  <span class="badge text-bg-secondary">CSS</span>
+                  <span class="badge text-bg-success">GitHub</span>
+                </div>
+
+                <div class="d-flex flex-wrap gap-2">
+                  <!-- Modal trigger -->
+                  <button
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#quoteModal"
+                  >
+                    Request a Quote – Let’s Build Your Site!
+                  </button>
+
+                  <a class="btn btn-outline-secondary" href="#contact"
+                    >Contact me</a
+                  >
+                </div>
+              </div>
+
+              <div class="col-12 col-lg-5">
+                <div class="text-center">
+                  <!-- NOTE: Make sure you have images/profile.png -->
+                  <img
+                    src="images/profile.png"
+                    class="img-fluid rounded-4 shadow-sm profile-img"
+                    alt="Profile photo"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODAL -->
+      <div
+        class="modal fade"
+        id="quoteModal"
+        tabindex="-1"
+        aria-labelledby="quoteModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title fw-bold" id="quoteModalLabel">
+                Request a Quote
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            <div class="modal-body">
+              <p class="text-muted mb-3">
+                Tell me what you want to build (portfolio, business site,
+                landing page), and I’ll reply with an estimate.
+              </p>
+
+              <!-- ✅ Added id="quoteForm" + required fields -->
+              <form id="quoteForm" class="row g-3">
+                <div class="col-12">
+                  <label for="quoteName" class="form-label">Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="quoteName"
+                    placeholder="Your name"
+                    required
+                  />
+                </div>
+                <div class="col-12">
+                  <label for="quoteEmail" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="quoteEmail"
+                    placeholder="you@example.com"
+                    required
+                  />
+                </div>
+                <div class="col-12">
+                  <label for="quoteMsg" class="form-label">Project details</label>
+                  <textarea
+                    class="form-control"
+                    id="quoteMsg"
+                    rows="3"
+                    placeholder="What do you need?"
+                    required
+                  ></textarea>
+                </div>
+              </form>
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+
+              <!-- ✅ Submit button now submits the form -->
+              <button type="submit" class="btn btn-primary" form="quoteForm">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-5 bg-light">
+      <div class="container">
+        <div class="card border-0 shadow-sm section-card">
+          <div class="card-body p-4 p-md-5">
+            <h2 class="text-center fw-bold mb-4">Skills</h2>
+
+            <div class="row g-4 justify-content-center">
+              <!-- HTML/CSS/JS -->
+              <div class="col-12 col-md-4">
+                <div class="card h-100 shadow-sm hover-lift">
+                  <div class="card-body">
+                    <div class="text-center mb-3">
+                      <img
+                        src="images/html-css-js.png"
+                        class="img-fluid skill-icon"
+                        alt="HTML CSS JS"
+                      />
+                    </div>
+                    <h5 class="fw-bold text-center">HTML / CSS / JS</h5>
+                    <p class="text-muted small">
+                      I build responsive pages using semantic HTML, modern CSS,
+                      and JavaScript for interactivity.
+                    </p>
+
+                    <div class="mb-2">
+                      <div class="d-flex justify-content-between small">
+                        <span>HTML</span><span>85%</span>
+                      </div>
+                      <div class="progress">
+                        <div
+                          class="progress-bar bg-danger"
+                          style="width: 85%"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div class="mb-2">
+                      <div class="d-flex justify-content-between small">
+                        <span>CSS</span><span>80%</span>
+                      </div>
+                      <div class="progress">
+                        <div
+                          class="progress-bar bg-primary"
+                          style="width: 80%"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <div class="d-flex justify-content-between small">
+                        <span>JavaScript</span><span>70%</span>
+                      </div>
+                      <div class="progress">
+                        <div
+                          class="progress-bar bg-warning"
+                          style="width: 70%"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <a class="btn btn-sm btn-outline-primary w-100" href="#contact"
+                      >Learn more</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bootstrap -->
+              <div class="col-12 col-md-4">
+                <div class="card h-100 shadow-sm hover-lift">
+                  <div class="card-body">
+                    <div class="text-center mb-3">
+                      <img
+                        src="images/bootstrap.png"
+                        class="img-fluid skill-icon"
+                        alt="Bootstrap"
+                      />
+                    </div>
+                    <h5 class="fw-bold text-center">Bootstrap 5</h5>
+                    <p class="text-muted small">
+                      I use Bootstrap’s grid, components, and utilities to build
+                      clean layouts quickly.
+                    </p>
+
+                    <div class="mb-3">
+                      <div class="d-flex justify-content-between small">
+                        <span>Bootstrap</span><span>80%</span>
+                      </div>
+                      <div class="progress">
+                        <div
+                          class="progress-bar bg-purple"
+                          style="width: 80%"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <ul class="list-group list-group-flush small mb-3">
+                      <li class="list-group-item">Grid system + breakpoints</li>
+                      <li class="list-group-item">Navbar + forms</li>
+                      <li class="list-group-item">Cards, modals, carousel</li>
+                    </ul>
+
+                    <a class="btn btn-sm btn-outline-primary w-100" href="#testimonials"
+                      >See examples</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- GitHub -->
+              <div class="col-12 col-md-4">
+                <div class="card h-100 shadow-sm hover-lift">
+                  <div class="card-body">
+                    <div class="text-center mb-3">
+                      <img
+                        src="images/github.png"
+                        class="img-fluid skill-icon"
+                        alt="GitHub"
+                      />
+                    </div>
+                    <h5 class="fw-bold text-center">GitHub</h5>
+                    <p class="text-muted small">
+                      I manage code with Git, push commits, and deploy projects
+                      using GitHub Pages.
+                    </p>
+
+                    <div class="alert alert-secondary small" role="alert">
+                      Tip: Always check file paths on the live GitHub Pages
+                      site.
+                    </div>
+
+                    <div class="mb-3">
+                      <div class="d-flex justify-content-between small">
+                        <span>GitHub</span><span>75%</span>
+                      </div>
+                      <div class="progress">
+                        <div class="progress-bar bg-dark" style="width: 75%"></div>
+                      </div>
+                    </div>
+
+                    <a class="btn btn-sm btn-outline-primary w-100" href="#contact"
+                      >View my repos</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-center text-muted mt-4 mb-0">
+              Built with <span class="fw-semibold">container</span>,
+              <span class="fw-semibold">row</span>,
+              <span class="fw-semibold">col-md</span>, spacing utilities, and
+              responsive images.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="py-5">
+      <div class="container">
+        <div class="card border-0 shadow-sm section-card">
+          <div class="card-body p-4 p-md-5">
+            <h2 class="text-center fw-bold mb-4">Testimonials</h2>
+
+            <div
+              id="testimonialsCarousel"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#testimonialsCarousel"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#testimonialsCarousel"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#testimonialsCarousel"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="row align-items-center g-4 justify-content-center">
+                    <div class="col-12 col-md-4 text-center">
+                      <img
+                        src="images/person1.png"
+                        class="img-fluid rounded-4 shadow-sm testimonial-img"
+                        alt="Person 1"
+                      />
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <p class="text-muted mb-2">
+                        Working with Robin was a positive experience—clear
+                        communication, clean design, and a responsive layout
+                        that looked great on mobile.
+                      </p>
+                      <p class="fw-semibold mb-0">
+                        — Classmate, Web Development Course
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <div class="row align-items-center g-4 justify-content-center">
+                    <div class="col-12 col-md-4 text-center">
+                      <img
+                        src="images/person2.png"
+                        class="img-fluid rounded-4 shadow-sm testimonial-img"
+                        alt="Person 2"
+                      />
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <p class="text-muted mb-2">
+                        The Bootstrap components were used correctly, and the
+                        custom CSS improved the design without breaking
+                        responsiveness.
+                      </p>
+                      <p class="fw-semibold mb-0">— Tutor Feedback</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <div class="row align-items-center g-4 justify-content-center">
+                    <div class="col-12 col-md-4 text-center">
+                      <img
+                        src="images/person3.png"
+                        class="img-fluid rounded-4 shadow-sm testimonial-img"
+                        alt="Person 3"
+                      />
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <p class="text-muted mb-2">
+                        Great use of grid system and spacing utilities. Sections
+                        are clean and easy to navigate.
+                      </p>
+                      <p class="fw-semibold mb-0">— Project Partner</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#testimonialsCarousel"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#testimonialsCarousel"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-5 bg-light">
+      <div class="container">
+        <div class="card border-0 shadow-sm section-card">
+          <div class="card-body p-4 p-md-5">
+            <h2 class="text-center fw-bold mb-4">Contact</h2>
+
+            <div class="row justify-content-center">
+              <div class="col-12 col-lg-8">
+                <form class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label for="name" class="form-label">Full name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="name"
+                      placeholder="Your name"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      placeholder="you@example.com"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-12">
+                    <label for="subject" class="form-label">Subject</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="subject"
+                      placeholder="Portfolio / Project / Question"
+                    />
+                  </div>
+
+                  <div class="col-12">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea
+                      class="form-control"
+                      id="message"
+                      rows="5"
+                      placeholder="Write your message..."
+                      required
+                    ></textarea>
+                  </div>
+
+                  <div
+                    class="col-12 d-flex flex-column flex-md-row gap-2 justify-content-between align-items-md-center"
+                  >
+                    <small class="text-muted"
+                      >I reply within 1–2 days. (Demo text)</small
+                    >
+                    <button type="submit" class="btn btn-primary px-4">
+                      Send message
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <hr class="my-5" />
+
+            <footer class="text-center">
+              <p class="text-muted mb-2">
+                Last updated: <span class="fw-semibold">September 2025</span>
+              </p>
+              <div class="d-flex justify-content-center gap-3 fs-4">
+                <a class="text-decoration-none text-muted" href="#" aria-label="GitHub"
+                  ><i class="bi bi-github"></i
+                ></a>
+                <a
+                  class="text-decoration-none text-muted"
+                  href="#"
+                  aria-label="LinkedIn"
+                  ><i class="bi bi-linkedin"></i
+                ></a>
+                <a class="text-decoration-none text-muted" href="#" aria-label="Email"
+                  ><i class="bi bi-envelope"></i
+                ></a>
+              </div>
+              <p class="text-muted mt-3 mb-0 small">
+                © 2025 Robin Uus. All rights reserved.
+              </p>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap 5 JS (CDN) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Scrollspy init (helps highlight active nav link) -->
+    <script>
+      const scrollSpy = new bootstrap.ScrollSpy(document.body, {
+        target: "#mainNavbar",
+        offset: 100,
+      });
+    </script>
+  </body>
+</html>
