@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Reaction Arrow Trainer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #333 0, #111 55%);
+      color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .app {
+      text-align: center;
+      padding: 14px;
+      border-radius: 24px;
+      background: rgba(20, 20, 20, 0.92);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      width: 100%;
+      max-width: 480px;
+    }
+
+    h1 {
+      margin: 6px 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .subtitle {
+      font-size: 0.75rem;
+      opacity: 0.6;
+      margin-bottom: 0.8rem;
+    }
+
+    /* small name inputs */
+    .names-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .names-row label {
+      flex: 1;
+      text-align: left;
+    }
+    .names-row span {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 0.65rem;
+      opacity: 0.6;
+    }
+    .names-row input {
+      width: 100%;
+      padding: 4px 6px;
+      border-radius: 8px;
+      border: 1px solid #444;
+      background: #181818;
+      color: #f5f5f5;
+      font-size: 0.65rem;
+      outline: none;
+    }
+    .names-row input:focus {
+      border-color: #4f8cff;
+    }
+
+    .labels-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 6px;
+      font-size: 0.7rem;
+      opacity: 0.5;
+      margin-bottom: 8px;
+    }
+
+    .arrow-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0 18px;
+    }
+
+    .arrow-circle {
+      width: 260px;
+      height: 260px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #444 0, #181818 55%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+      border: 2px solid rgba(255,255,255,0.08);
+    }
+
+    .arrow {
+      font-size: 160px;
+      transition: color 0.2s ease, transform 0.12s ease;
+      color: #f5f5f5;
+    }
+
+    .arrow.pulse {
+      transform: scale(1.12);
+    }
+
+    .status {
+      min-height: 1.4em;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+
+    .secondary-status {
+      min-height: 1.2em;
+      font-size: 0.75rem;
+      opacity: 0.65;
+      margin-bottom: 4px;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      font-size: 0.8rem;
+      margin-top: 6px;
+    }
+
+    .control-group {
+      white-space: nowrap;
+    }
+
+    select {
+      font-size: 0.8rem;
+      padding: 4px 6px;
+      border-radius: 8px;
+      border: 1px solid #555;
+      background: #252525;
+      color: #f5f5f5;
+      margin-left: 4px;
+    }
+
+    button {
+      margin-top: 8px;
+      font-size: 1rem;
+      padding: 10px 22px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #2d7bff, #6a5bff);
+      color: white;
+      font-weight: 600;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.5);
+      min-width: 150px;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: default;
+      box-shadow: none;
+    }
+
+    @media (max-width: 480px) {
+      .arrow-circle {
+        width: 230px;
+        height: 230px;
+      }
+      .arrow {
+        font-size: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>Reaction Arrow</h1>
+    <div class="subtitle">Place phone between two people and press start</div>
+
+    <div class="names-row">
+      <label>
+        <span>Left name</span>
+        <input id="leftNameInput" type="text" placeholder="Left person" />
+      </label>
+      <label>
+        <span>Right name</span>
+        <input id="rightNameInput" type="text" placeholder="Right person" />
+      </label>
+    </div>
+
+    <div class="labels-row">
+      <span id="leftLabel">Left person</span>
+      <span id="rightLabel">Right person</span>
+    </div>
+
+    <div class="arrow-wrap">
+      <div class="arrow-circle">
+        <div id="arrow" class="arrow">–</div>
+      </div>
+    </div>
+
+    <div id="status" class="status">Press “Start” to begin.</div>
+    <div id="secondaryStatus" class="secondary-status"></div>
+
+    <div class="controls">
+      <div class="control-group">
+        <label for="speed">Change every:</label>
+        <select id="speed">
+          <option value="4000">4 s (slow)</option>
+          <option value="2500" selected>2.5 s (medium)</option>
+          <option value="1500">1.5 s (fast)</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label for="countdown">Countdown:</label>
+        <select id="countdown">
+          <option value="0">None</option>
+          <option value="3" selected>3 seconds</option>
+          <option value="5">5 seconds</option>
+        </select>
+      </div>
+    </div>
+
+    <button id="startStopBtn">Start</button>
+  </div>
+
+  <script>
+    let currentDirection = null;   // "left" or "right"
+    let lastDirection = null;
+    let sameInRowCount = 0;
+    let intervalId = null;
+    let countdownId = null;
+    let running = false;
+
+    const arrowEl = document.getElementById("arrow");
+    const statusEl = document.getElementById("status");
+    const secondaryStatusEl = document.getElementById("secondaryStatus");
+    const speedEl = document.getElementById("speed");
+    const countdownEl = document.getElementById("countdown");
+    const startStopBtn = document.getElementById("startStopBtn");
+    const leftNameInput = document.getElementById("leftNameInput");
+    const rightNameInput = document.getElementById("rightNameInput");
+    const leftLabel = document.getElementById("leftLabel");
+    const rightLabel = document.getElementById("rightLabel");
+
+    // AUDIO SETUP
+    let audioCtx = null;
+
+    function initAudio() {
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === "suspended") {
+          audioCtx.resume();
+        }
+      } catch (e) {
+        // ignore if audio unsupported
+      }
+    }
+
+    function playBeep(isRepeat) {
+      try {
+        if (!audioCtx) return; // will be created after first Start tap
+
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        // Different pitch for repeat (red arrow)
+        osc.frequency.value = isRepeat ? 520 : 760;
+        gain.gain.value = 0.12;
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        const now = audioCtx.currentTime;
+        osc.start(now);
+        osc.stop(now + 0.12);
+      } catch (e) {
+        // ignore errors (e.g. if audio blocked)
+      }
+    }
+
+    function updateNameLabels() {
+      const left = leftNameInput.value.trim() || "Left person";
+      const right = rightNameInput.value.trim() || "Right person";
+      leftLabel.textContent = left;
+      rightLabel.textContent = right;
+    }
+
+    leftNameInput.addEventListener("input", updateNameLabels);
+    rightNameInput.addEventListener("input", updateNameLabels);
+
+    function pickRandomDirection() {
+      return Math.random() < 0.5 ? "left" : "right";
+    }
+
+    function showNewArrow() {
+      currentDirection = pickRandomDirection();
+
+      // streak logic
+      if (currentDirection === lastDirection) {
+        sameInRowCount += 1;
+      } else {
+        sameInRowCount = 1;
+      }
+      lastDirection = currentDirection;
+
+      arrowEl.textContent = currentDirection === "left" ? "←" : "→";
+
+      const isRepeat = sameInRowCount >= 2;
+
+      if (isRepeat) {
+        arrowEl.style.color = "red";
+      } else {
+        arrowEl.style.color = "#f5f5f5";
+      }
+
+      // pulse animation
+      arrowEl.classList.remove("pulse");
+      void arrowEl.offsetWidth;
+      arrowEl.classList.add("pulse");
+      setTimeout(() => arrowEl.classList.remove("pulse"), 120);
+
+      const leftName = leftLabel.textContent;
+      const rightName = rightLabel.textContent;
+      const who = currentDirection === "left" ? leftName : rightName;
+
+      statusEl.textContent = `Now: ${who}`;
+      secondaryStatusEl.textContent =
+        `Side streak: ${sameInRowCount}` + (isRepeat ? " (repeat!)" : "");
+
+      playBeep(isRepeat);
+    }
+
+    function beginLoop() {
+      if (running) return;
+      running = true;
+      startStopBtn.textContent = "Stop";
+
+      const delay = parseInt(speedEl.value, 10);
+      showNewArrow();
+      intervalId = setInterval(showNewArrow, delay);
+      secondaryStatusEl.textContent += ` • every ${delay / 1000} s`;
+    }
+
+    function startWithCountdown() {
+      updateNameLabels();
+      const cdSeconds = parseInt(countdownEl.value, 10);
+
+      if (cdSeconds <= 0) {
+        statusEl.textContent = "Go!";
+        beginLoop();
+        return;
+      }
+
+      let remaining = cdSeconds;
+      statusEl.textContent = `Starting in ${remaining}…`;
+      secondaryStatusEl.textContent = "";
+
+      startStopBtn.disabled = true;
+
+      countdownId = setInterval(() => {
+        remaining -= 1;
+        if (remaining > 0) {
+          statusEl.textContent = `Starting in ${remaining}…`;
+          playBeep(false);
+        } else {
+          clearInterval(countdownId);
+          countdownId = null;
+          startStopBtn.disabled = false;
+          statusEl.textContent = "Go!";
+          playBeep(false);
+          beginLoop();
+        }
+      }, 1000);
+    }
+
+    function stopAll() {
+      running = false;
+      startStopBtn.textContent = "Start";
+      clearInterval(intervalId);
+      intervalId = null;
+      clearInterval(countdownId);
+      countdownId = null;
+      statusEl.textContent = "Paused";
+      secondaryStatusEl.textContent = "";
+      arrowEl.style.color = "#f5f5f5";
+    }
+
+    startStopBtn.addEventListener("click", () => {
+      // unlock audio on user gesture
+      initAudio();
+
+      if (running || countdownId) {
+        stopAll();
+      } else {
+        startWithCountdown();
+      }
+    });
+  </script>
+</body>
+</html>
